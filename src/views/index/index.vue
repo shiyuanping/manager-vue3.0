@@ -6,8 +6,7 @@
             :default-active="route.path"
             :collapse="isCollapse"
             :collapse-transition="false"
-            @open="handleOpen"
-            @close="handleClose"
+            :router="true"
             background-color="#545c64"
             text-color="#fff"
             active-text-color="#ffd04b">
@@ -173,11 +172,14 @@ export default {
         state.selectedTab = activeName;
         state.tabList = tabs.filter(tab => tab.name !== targetName);
     }
-    function clickTab(data) {
-        if (data.name == route.path) {
+    function clickTab(tab, event) {
+        console.log(tab.paneName);
+        console.log(event);
+        console.log(route.path);
+        if (tab.paneName == route.path) {
             return;
         }
-        router.push(data.name);
+        router.push(tab.paneName);
     }
     function handleSelect(event) {
         console.log(event);
@@ -192,6 +194,7 @@ export default {
     return {
         ...toRefs(state),
         route,
+        router,
         handleCollapse,
         addTab,
         removeTab,

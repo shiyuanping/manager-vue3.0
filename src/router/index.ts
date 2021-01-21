@@ -23,7 +23,7 @@ const routes: Array<RouteRecordRaw> = [
             {
                 path: 'menu',
                 name: '菜单管理',
-                component: () => import('../views/main/systemManagement/menuManagement.vue'),
+                component: () => import('../views/About.vue'),
             },
             {
                 path: 'role',
